@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Ummi Aqiqah - Jasa Aqiqah & Catering Amanah Profesional</title>
+    <link rel="icon" type="image/png" href="logo-Photoroom.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        :root {
+            --primary: #E67E22;
+            --primary-dark: #D35400;
+            --primary-light: #F39C12;
+            --secondary: #1E2F2A;
+            --accent: #D4AF37;
+            --bg-color: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --text-dark: #2C2C2C;
+            --text-light: #666666;
+            --border-color: #EEEEEE;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(145deg, #FFF9F0 0%, #FFF5E6 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .section-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* HEADER MEWAH */
+        .hero {
+            background: #E67E22;
+            border-radius: 30px;
+            padding: 60px 30px;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(230, 126, 34, 0.3);
+            color: white;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 0;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%23d4af37" fill-opacity="0.05" fill-rule="evenodd"/%3E%3C/svg%3E');
+            pointer-events: none;
+        }
+
+        .logo {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 25px;
+            padding: 20px;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulseGlow 3s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.9); opacity: 0.5; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .logo img {
+            height: 220px;
+            width: 220px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 6px solid #FFD966;
+            background-color: white;
+            padding: 8px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 50px rgba(255, 217, 102, 0.6);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.4), 0 0 80px rgba(255, 217, 102, 0.8);
+            border-color: #FFFFFF;
+        }
+
+        .logo h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFFFFF, #FFD966);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 0;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            color: #FFFFFF;
+            margin-top: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.1);
+            padding: 8px 25px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 35px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(8px);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,200,100,0.6);
+            color: #FFF5E0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+
+        .badge i {
+            color: #FFD966;
+            font-size: 1.1rem;
+        }
+
+        /* SECTION TITLE */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 60px 0 30px;
+            color: var(--secondary);
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        /* FORM PEMESANAN */
+        .form-container {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group label i {
+            color: var(--primary);
+            width: 16px;
+            text-align: center;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1.5px solid #E0E0E0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            background: #F9F9F9;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.1);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .features-wrapper {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+            border: 1px solid rgba(230, 126, 34, 0.2);
+        }
+
+        /* PAKET GRID DENGAN FOTO */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 45px rgba(230,126,34,0.15);
+            border-color: rgba(230,126,34,0.3);
+        }
+
+        .card-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 4px solid var(--primary);
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.03);
+        }
+
+        .card-body {
+            padding: 25px;
+            background: linear-gradient(to bottom, #ffffff, #fafafa);
+        }
+
+        .btn-pilih {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 15px rgba(230,126,34,0.2);
+        }
+
+        .btn-pilih:hover {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            box-shadow: 0 12px 20px rgba(230,126,34,0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-pilih i {
+            font-size: 1.1rem;
+        }
+
+        /* ACTION BUTTONS */
+        .action-container {
+            text-align: center;
+            margin: 50px 0;
+            padding: 40px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px dashed var(--accent);
+        }
+
+        .action-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-submit i {
+            font-size: 1.5rem;
+        }
+
+        /* MAPS */
+        .maps-wrapper {
+            background: white;
+            padding: 15px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+
+        .maps-container {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #E67E22;
+            color: #FFFFFF;
+            padding: 60px 40px 40px;
+            border-radius: 30px 30px 0 0;
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+            border-top: 1px solid rgba(255, 215, 0, 0.4);
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 0;
+        }
+
+        footer > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: #FFFFFF;
+            border-radius: 0 0 4px 4px;
+            z-index: 2;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-col h4 {
+            color: #FFFFFF;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: #FFF5E0;
+        }
+
+        .footer-col i {
+            color: #FFD966;
+            margin-top: 4px;
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+            color: #FFE4B5;
+        }
+
+        .footer-bottom span {
+            color: #FFFFFF;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 900px) {
+            .packages-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+            .logo h1 { font-size: 2.5rem; }
+            .hero { padding: 40px 20px; }
+            .section-title { font-size: 1.8rem; }
+        }
+
+        @media (max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .btn-submit { width: 100%; justify-content: center; }
+            .footer-grid { text-align: center; }
+            .footer-col p { flex-direction: column; align-items: center; text-align: center; }
+            .footer-col h4 { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero animate__animated animate__fadeIn">
+        <div class="logo">
+            <img src="logo-Photoroom.png" alt="Logo Ummi Aqiqah" class="animate__animated animate__pulse animate__infinite animate__slower">
+            <h1>Ummi Aqiqah</h1>
+        </div>
+        <div class="tagline">Jasa Aqiqah & Catering Amanah Profesional</div>
+        <div class="badge-container">
+            <span class="badge"><i class="fas fa-certificate"></i> Bersertifikat SLHS</span>
+            <span class="badge"><i class="fas fa-user-check"></i> Bersertifikat BNSP</span>
+            <span class="badge"><i class="fas fa-check-circle"></i> Bersertifikat HALAL</span>
+        </div>
+    </div>
+
+    <!-- FORM PEMESANAN -->
+    <div class="section-title"><i class="fas fa-user-edit"></i> Data Pemesanan</div>
+    <div class="form-container">
+        <div class="form-grid">
+            <div class="form-group"><label><i class="fas fa-user"></i> Nama Pemesan</label><input type="text" id="namaPemesan" placeholder="Nama lengkap"></div>
+            <div class="form-group"><label><i class="fas fa-phone"></i> No. Telepon</label><input type="tel" id="noTelp" placeholder="08123456789"></div>
+            <div class="form-group"><label><i class="fas fa-baby"></i> Nama Anak Diaqiqah</label><input type="text" id="namaAnak" placeholder="Nama anak"></div>
+            <div class="form-group"><label><i class="fas fa-venus-mars"></i> Jenis Kelamin</label><select id="jenisKelamin"><option value="Laki-laki">Laki-laki</option><option value="Perempuan">Perempuan</option></select></div>
+            <div class="form-group"><label><i class="fas fa-paw"></i> Kategori Hewan</label><select id="hewan"><option value="Kambing">Kambing</option><option value="Domba">Domba</option></select></div>
+            <div class="form-group"><label><i class="fas fa-venus"></i> Jenis Kelamin Hewan</label><select id="jenisHewan"><option value="Betina">Betina</option><option value="Jantan">Jantan</option></select></div>
+            <div class="form-group"><label><i class="fas fa-sort-numeric-up"></i> Jumlah Ekor (1-5)</label><input type="number" id="jumlahEkor" min="1" max="5" value="1"></div>
+            <div class="form-group"><label><i class="fas fa-video"></i> Penyembelihan</label><select id="penyembelihan"><option value="Disaksikan Langsung">Disaksikan Langsung</option><option value="Video Call">Video Call</option><option value="Dokumentasi">Dokumentasi</option></select></div>
+            <div class="form-group"><label><i class="fas fa-boxes"></i> Jumlah Paket (Box)</label><select id="jumlahPaket"><option>40</option><option>50</option><option>60</option><option>75</option><option>85</option><option>100</option><option>125</option><option>150</option></select></div>
+            <div class="form-group"><label><i class="fas fa-certificate"></i> Sertifikat Aqiqah</label><select id="sertifikat"><option value="Pakai Foto">Pakai Foto</option><option value="Tidak Pakai Foto">Tidak Pakai Foto</option></select></div>
+            <div class="form-group"><label><i class="fas fa-envelope"></i> Kartu Ucapan Aqiqah</label><select id="kartuUcapan"><option value="Pakai Foto">Pakai Foto</option><option value="Tidak Pakai Foto">Tidak Pakai Foto</option></select></div>
+            <div class="form-group"><label><i class="fas fa-map-marker-alt"></i> Kecamatan</label><input type="text" id="kecamatan" placeholder="Cibinong, Sawangan, dll"></div>
+            <div class="form-group"><label><i class="fas fa-city"></i> Kota/Kabupaten</label><input type="text" id="kota" placeholder="Jakarta Timur, Bogor, Depok"></div>
+            <div class="form-group full-width"><label><i class="fas fa-address-card"></i> Alamat Lengkap</label><textarea id="alamat" rows="3" placeholder="Jalan, RT/RW, No. Rumah, Kode Pos"></textarea></div>
+            <div class="form-group full-width"><label><i class="fas fa-camera"></i> Upload Foto (Dokumen/Referensi)</label><input type="file" id="uploadFoto" accept="image/*"></div>
+        </div>
+    </div>
+
+    <!-- MAPS -->
+    <div class="section-title"><i class="fas fa-map-marked-alt"></i> Lokasi Kami</div>
+    <div class="maps-wrapper animate__animated animate__fadeInUp">
+        <div class="maps-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.987318665984!2d106.763925!3d-6.485158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e95e2acd590d%3A0x4e7c3b5b8e51f8e1!2sSawangan%2C%20Depok%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1710000000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <!-- PAKET AQIQAH DENGAN FOTO -->
+    <div class="section-title"><i class="fas fa-tags"></i> Pilih Paket Aqiqah</div>
+    <div class="packages-grid" id="packagesContainer"></div>
+
+    <div class="action-container animate__animated animate__fadeInUp">
+        <h3 class="action-title">Sudah Menentukan Pilihan?</h3>
+        <p style="color: #666; margin-bottom: 25px;">Kirim data pesanan Anda sekarang dan kami akan segera menghubungi Anda untuk konfirmasi.</p>
+        <button class="btn-submit" id="submitBtn">
+            <i class="fab fa-whatsapp"></i> Pesan Sekarang via WhatsApp
+        </button>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4><i class="fas fa-store"></i> Ummi Aqiqah</h4>
+                <p>Melayani ibadah aqiqah buah hati Anda dengan profesional, amanah, dan masakan bercita rasa tinggi.</p>
+            </div>
+            <div class="footer-col">
+                <h4><i class="fas fa-phone-alt"></i> Hubungi Kami</h4>
+                <p><i class="fab fa-whatsapp"></i> 0813 3256 5541</p>
+                <p><i class="fab fa-whatsapp"></i> 0813 5760 0951</p>
+            </div>
+            <div class="footer-col">
+                <h4><i class="fas fa-map-marker-alt"></i> Kunjungi Kandang</h4>
+                <p><i class="fas fa-location-arrow"></i> Green Leaf Village Blok A No.7<br>Bedahan, Sawangan, Depok</p>
+                <p><i class="fas fa-eye"></i> Datang & Saksikan Langsung Pemotongan Hewan Aqiqah</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 <span>Ummi Aqiqah</span>. Berkah, Halal, Nikmat.
+        </div>
+    </footer>
+</div>
+
+<script>
+    const paketList = [
+        { 
+            name: "Paket Ekonomis", 
+            imgBoy: "paket-ekonomis-Babyboy.jpg", 
+            imgGirl: "paket-ekonomis-Babygirl.jpg"
+        },
+        { 
+            name: "Paket Reguler", 
+            imgBoy: "paket-reguler-babyboy.jpg", 
+            imgGirl: "paket-reguler-Babygirl.jpg"
+        },
+        { 
+            name: "Paket Kebuli", 
+            imgBoy: "paket-kebuli-Babyboy.jpg", 
+            imgGirl: "paket-kebuli-Babygirl.jpg"
+        },
+        { 
+            name: "Paket Deluxe", 
+            imgBoy: "paket-deluxe-Babyboy.jpg", 
+            imgGirl: "paket-deluxe-babygirl.jpg"
+        }
+    ];
+
+    function renderPackages() {
+        const container = document.getElementById('packagesContainer');
+        const jk = document.getElementById('jenisKelamin').value;
+        container.innerHTML = '';
+        
+        paketList.forEach(paket => {
+            const imgSrc = jk === 'Laki-laki' ? paket.imgBoy : paket.imgGirl;
+            container.innerHTML += `
+                <div class="card">
+                    <div class="card-img">
+                        <img src="${imgSrc}" alt="${paket.name}">
+                    </div>
+                    <div class="card-body" style="padding-top: 20px;">
+                        <button class="btn-pilih" onclick="pilihPaket('${paket.name}')">Pilih ${paket.name}</button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    // Update paket images when jenis kelamin changes
+    document.getElementById('jenisKelamin').addEventListener('change', renderPackages);
+
+    let selectedPaket = "";
+
+    function pilihPaket(nama) {
+        selectedPaket = nama;
+        alert(`Paket "${nama}" dipilih. Silakan lengkapi data dan kirim pesanan.`);
+    }
+
+    document.getElementById('submitBtn').onclick = () => {
+        const nama = document.getElementById('namaPemesan').value;
+        const telp = document.getElementById('noTelp').value;
+        const anak = document.getElementById('namaAnak').value;
+        const jk = document.getElementById('jenisKelamin').value;
+        const hewan = document.getElementById('hewan').value;
+        const jenisHewan = document.getElementById('jenisHewan').value;
+        const jumlahEkor = document.getElementById('jumlahEkor').value;
+        const penyembelihan = document.getElementById('penyembelihan').value;
+        const jumlahPaket = document.getElementById('jumlahPaket').value;
+        const sertifikat = document.getElementById('sertifikat').value;
+        const kartu = document.getElementById('kartuUcapan').value;
+        const kec = document.getElementById('kecamatan').value;
+        const kota = document.getElementById('kota').value;
+        const alamat = document.getElementById('alamat').value;
+        
+        if(!nama || !telp || !anak || !alamat) {
+            alert("Harap isi Nama Pemesan, No Telepon, Nama Anak, dan Alamat Lengkap!");
+            return;
+        }
+        if(!selectedPaket) {
+            alert("Silakan pilih paket terlebih dahulu!");
+            return;
+        }
+
+        let msg = `Halo Ummi Aqiqah,%0A%0A📋 *DATA PEMESANAN*%0A`;
+        msg += `Nama: ${nama}%0ANo HP: ${telp}%0A`;
+        msg += `Anak: ${anak} (${jk})%0A`;
+        msg += `Paket: ${selectedPaket} (${jumlahPaket} Box)%0A`;
+        msg += `Hewan: ${hewan} ${jenisHewan} (${jumlahEkor} ekor)%0A`;
+        msg += `Penyembelihan: ${penyembelihan}%0A`;
+        msg += `Sertifikat: ${sertifikat} | Kartu Ucapan: ${kartu}%0A`;
+        msg += `📍 Alamat: ${alamat}, Kec. ${kec}, ${kota}%0A%0A`;
+        msg += `Mohon info ketersediaan & total biaya. Terima kasih.`;
+
+        window.open(`https://wa.me/6281332565541?text=${msg}`, '_blank');
+    };
+
+    renderPackages();
+</script>
+</body>
+</html>
