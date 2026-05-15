@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Ummi Aqiqah - Jasa Aqiqah & Catering Amanah Profesional</title>
-    <link rel="icon" type="image/png" href="logo-Photoroom.png">
+    <link rel="icon" type="image/png" href="LogoUa.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -283,6 +283,93 @@
             grid-column: 1 / -1;
         }
 
+        /* BABY BOY/GIRL SELECTOR */
+        .baby-selector {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .baby-btn {
+            flex: 1;
+            max-width: 200px;
+            padding: 16px 25px;
+            border: 2.5px solid #E0E0E0;
+            background: white;
+            border-radius: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .baby-btn:hover {
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(230,126,34,0.15);
+        }
+
+        .baby-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(230,126,34,0.3);
+        }
+
+        .baby-btn-icon {
+            font-size: 2rem;
+        }
+
+        /* FORM SECTION TITLE */
+        .form-section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .form-section-title:first-child {
+            margin-top: 0;
+        }
+
+        /* BISMILLAH TEXT */
+        .bismillah {
+            font-size: 1.3rem;
+            color: var(--primary);
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        /* CHECKBOX STYLING */
+        .form-group.checkbox-group {
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .form-group.checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .form-group.checkbox-group label {
+            margin: 0;
+            font-weight: 500;
+        }
+
         .features-wrapper {
             background: white;
             padding: 40px;
@@ -364,6 +451,19 @@
             background: linear-gradient(135deg, var(--primary-light), var(--primary));
             box-shadow: 0 12px 20px rgba(230,126,34,0.3);
             transform: translateY(-2px);
+        }
+
+        .btn-pilih.active {
+            background: #1a1a1a;
+            color: white;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+            border-color: #1a1a1a;
+            transform: scale(1.02);
+        }
+
+        .btn-pilih.active:hover {
+            background: #2a2a2a;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
 
         .btn-pilih i {
@@ -573,7 +673,7 @@
 <div class="container">
     <div class="hero animate__animated animate__fadeIn">
         <div class="logo">
-            <img src="logo-Photoroom.png" alt="Logo Ummi Aqiqah" class="animate__animated animate__pulse animate__infinite animate__slower">
+            <img src="LogoUa.png" alt="Logo Ummi Aqiqah" class="animate__animated animate__pulse animate__infinite animate__slower">
             <h1>Ummi Aqiqah</h1>
         </div>
         <div class="tagline">Jasa Aqiqah & Catering Amanah Profesional</div>
@@ -584,39 +684,93 @@
         </div>
     </div>
 
+    <!-- PILIHAN BABY BOY / BABY GIRL -->
+    <div class="section-title"><i class="fas fa-baby"></i> Pilih Jenis Bayi</div>
+    <div class="baby-selector">
+        <button class="baby-btn active" id="jenisBayiBoy" onclick="selectBaby('Babyboy')">
+            <span class="baby-btn-icon">🧒</span>
+            <span>Baby Boy</span>
+        </button>
+        <button class="baby-btn" id="jenisBayiGirl" onclick="selectBaby('Babygirl')">
+            <span class="baby-btn-icon">👧</span>
+            <span>Baby Girl</span>
+        </button>
+    </div>
+
+     <!-- PAKET AQIQAH DENGAN FOTO -->
+    <div class="section-title"><i class="fas fa-tags"></i> Pilih Paket Aqiqah</div>
+    <div class="packages-grid" id="packagesContainer"></div>
+
     <!-- FORM PEMESANAN -->
     <div class="section-title"><i class="fas fa-user-edit"></i> Data Pemesanan</div>
     <div class="form-container">
+        <div class="bismillah">Bismillahirrahmanirrahim</div>
+        <h3 style="text-align: center; color: var(--secondary); margin-bottom: 30px;">📋 DATA PEMESANAN AQIQAH</h3>
+        
         <div class="form-grid">
+            <!-- DATA PEMESAN -->
+            <div class="form-section-title" style="grid-column: 1 / -1;">👤 Data Pemesan</div>
             <div class="form-group"><label><i class="fas fa-user"></i> Nama Pemesan</label><input type="text" id="namaPemesan" placeholder="Nama lengkap"></div>
-            <div class="form-group"><label><i class="fas fa-phone"></i> No. Telepon</label><input type="tel" id="noTelp" placeholder="08123456789"></div>
-            <div class="form-group"><label><i class="fas fa-baby"></i> Nama Anak Diaqiqah</label><input type="text" id="namaAnak" placeholder="Nama anak"></div>
+            <div class="form-group"><label><i class="fas fa-phone"></i> No. Telp/HP (Min. 2 Nomor)</label><input type="text" id="noTelp" placeholder="08123456789 / 08987654321"></div>
+            <div class="form-group"><label><i class="fas fa-envelope"></i> Email</label><input type="email" id="email" placeholder="bambang457@gmail.com"></div>
+
+            <!-- DATA ANAK -->
+            <div class="form-section-title" style="grid-column: 1 / -1; margin-top: 30px;">👶 Data Anak yang Diaqiqah</div>
+            <div class="form-group"><label><i class="fas fa-baby"></i> Nama Anak</label><input type="text" id="namaAnak" placeholder="Nama anak"></div>
             <div class="form-group"><label><i class="fas fa-venus-mars"></i> Jenis Kelamin</label><select id="jenisKelamin"><option value="Laki-laki">Laki-laki</option><option value="Perempuan">Perempuan</option></select></div>
-            <div class="form-group"><label><i class="fas fa-paw"></i> Kategori Hewan</label><select id="hewan"><option value="Kambing">Kambing</option><option value="Domba">Domba</option></select></div>
-            <div class="form-group"><label><i class="fas fa-venus"></i> Jenis Kelamin Hewan</label><select id="jenisHewan"><option value="Betina">Betina</option><option value="Jantan">Jantan</option></select></div>
-            <div class="form-group"><label><i class="fas fa-sort-numeric-up"></i> Jumlah Ekor (1-5)</label><input type="number" id="jumlahEkor" min="1" max="5" value="1"></div>
-            <div class="form-group"><label><i class="fas fa-video"></i> Penyembelihan</label><select id="penyembelihan"><option value="Disaksikan Langsung">Disaksikan Langsung</option><option value="Video Call">Video Call</option><option value="Dokumentasi">Dokumentasi</option></select></div>
-            <div class="form-group"><label><i class="fas fa-boxes"></i> Jumlah Paket (Box)</label><select id="jumlahPaket"><option>40</option><option>50</option><option>60</option><option>75</option><option>85</option><option>100</option><option>125</option><option>150</option></select></div>
-            <div class="form-group"><label><i class="fas fa-certificate"></i> Sertifikat Aqiqah</label><select id="sertifikat"><option value="Pakai Foto">Pakai Foto</option><option value="Tidak Pakai Foto">Tidak Pakai Foto</option></select></div>
-            <div class="form-group"><label><i class="fas fa-envelope"></i> Kartu Ucapan Aqiqah</label><select id="kartuUcapan"><option value="Pakai Foto">Pakai Foto</option><option value="Tidak Pakai Foto">Tidak Pakai Foto</option></select></div>
-            <div class="form-group"><label><i class="fas fa-map-marker-alt"></i> Kecamatan</label><input type="text" id="kecamatan" placeholder="Cibinong, Sawangan, dll"></div>
-            <div class="form-group"><label><i class="fas fa-city"></i> Kota/Kabupaten</label><input type="text" id="kota" placeholder="Jakarta Timur, Bogor, Depok"></div>
-            <div class="form-group full-width"><label><i class="fas fa-address-card"></i> Alamat Lengkap</label><textarea id="alamat" rows="3" placeholder="Jalan, RT/RW, No. Rumah, Kode Pos"></textarea></div>
-            <div class="form-group full-width"><label><i class="fas fa-camera"></i> Upload Foto (Dokumen/Referensi)</label><input type="file" id="uploadFoto" accept="image/*"></div>
+            <div class="form-group"><label><i class="fas fa-map-pin"></i> Tempat, Tgl. Lahir</label><input type="text" id="tempatTglLahir" placeholder="Jakarta, 01 Januari 2024"></div>
+            <div class="form-group"><label><i class="fas fa-male"></i> Nama Ayah</label><input type="text" id="namaAyah" placeholder="Nama ayah"></div>
+            <div class="form-group"><label><i class="fas fa-female"></i> Nama Ibu</label><input type="text" id="namaIbu" placeholder="Nama ibu"></div>
+
+            <!-- DATA PENGIRIMAN -->
+            <div class="form-section-title" style="grid-column: 1 / -1; margin-top: 30px;">📅 Jadwal Pengiriman</div>
+            <div class="form-group full-width"><label><i class="fas fa-calendar-alt"></i> Hari / Tanggal Kirim</label><input type="datetime-local" id="hariTglKirim"></div>
+            <div class="form-group"><label><i class="fas fa-clock"></i> Jam Tiba Lokasi</label><input type="time" id="jamTiba"></div>
+            <div class="form-group"><label><i class="fas fa-clock"></i> Jam Mulai Acara</label><input type="time" id="jamAcara"></div>
+
+            <!-- ALAMAT -->
+            <div class="form-section-title" style="grid-column: 1 / -1; margin-top: 30px;">📍 Alamat Lengkap</div>
+            <div class="form-group full-width"><label><i class="fas fa-address-card"></i> Alamat Lengkap</label><textarea id="alamat" rows="3" placeholder="Jalan, No. Rumah"></textarea></div>
+            <div class="form-group"><label><i class="fas fa-square"></i> RT</label><input type="text" id="rt" placeholder="001"></div>
+            <div class="form-group"><label><i class="fas fa-square"></i> RW</label><input type="text" id="rw" placeholder="001"></div>
+            <div class="form-group"><label><i class="fas fa-home"></i> No. Rumah/Blok</label><input type="text" id="noRumah" placeholder="No. Rumah"></div>
+            <div class="form-group"><label><i class="fas fa-map-marker-alt"></i> Kecamatan</label><input type="text" id="kecamatan" placeholder="Sawangan"></div>
+            <div class="form-group"><label><i class="fas fa-city"></i> Kota</label><input type="text" id="kota" placeholder="Depok"></div>
+            <div class="form-group"><label><i class="fas fa-landmark"></i> Patokan</label><input type="text" id="patokan" placeholder="Dekat minimarket, dll"></div>
+
+            <!-- DETAIL PESANAN -->
+            <div class="form-section-title" style="grid-column: 1 / -1; margin-top: 30px;">🎁 Detail Pesanan</div>
+            <div class="form-group"><label><i class="fas fa-tags"></i> Tipe/Paket</label><input type="text" id="tipePaket" placeholder="Paket Ekonomis / Reguler / dll"></div>
+            <div class="form-group"><label><i class="fas fa-venus"></i> Betina/Jantan</label><select id="jenisHewan"><option value="Betina">Betina</option><option value="Jantan">Jantan</option></select></div>
+            <div class="form-group"><label><i class="fas fa-sort-numeric-up"></i> Jumlah (Ekor)</label><input type="number" id="jumlahEkor" min="1" max="5" value="1"></div>
+            <div class="form-group"><label><i class="fas fa-utensils"></i> Menu Masakan</label><input type="text" id="menuMasakan" placeholder="Rendang, semur, dll"></div>
+            <div class="form-group"><label><i class="fas fa-boxes"></i> Jumlah Nasi Box</label><select id="jumlahNasiBox"><option>40</option><option>50</option><option>60</option><option>75</option><option>85</option><option>100</option><option>125</option><option>150</option></select></div>
+            <div class="form-group"><label><i class="fas fa-plus-circle"></i> Menu Tambahan</label><input type="text" id="menuTambahan" placeholder="Minuman, kue, dll (Opsional)"></div>
+            <div class="form-group"><label><i class="fas fa-money-bill"></i> DP (Deposit)</label><input type="text" id="dp" placeholder="Jumlah DP"></div>
+            <div class="form-group full-width"><label><i class="fas fa-sticky-note"></i> Catatan dari Pemesan</label><textarea id="catatan" rows="3" placeholder="Catatan tambahan (Opsional)"></textarea></div>
+
+            <!-- INFO TAMBAHAN -->
+            <div class="form-section-title" style="grid-column: 1 / -1; margin-top: 30px;">✅ Info Tambahan</div>
+            <div class="form-group full-width checkbox-group"><input type="checkbox" id="pakaiFotoKartu"><label for="pakaiFotoKartu">Apakah mau pakai foto di kartu ucapannya?</label></div>
+            <div class="form-group full-width checkbox-group"><input type="checkbox" id="pakaiFotoSertifikat"><label for="pakaiFotoSertifikat">Apakah mau pakai foto di sertifikatnya?</label></div>
+            <div class="form-group full-width checkbox-group"><input type="checkbox" id="buatUndanganDigital"><label for="buatUndanganDigital">Apakah mau dibuatkan undangan digital?</label></div>
+            
+            <div id="dataUndanganSection" style="display: none; grid-column: 1 / -1; background: #F0F8FF; padding: 20px; border-radius: 12px; margin-top: 15px;">
+                <h4 style="color: var(--primary); margin-bottom: 15px;">📋 DATA UNDANGAN</h4>
+                <div class="form-grid" style="margin-bottom: 0;">
+                    <div class="form-group"><label><i class="fas fa-calendar"></i> Hari</label><input type="text" id="hariUndangan" placeholder="Hari"></div>
+                    <div class="form-group"><label><i class="fas fa-clock"></i> Pukul</label><input type="time" id="pukulUndangan"></div>
+                    <div class="form-group"><label><i class="fas fa-map-marked-alt"></i> Lokasi</label><input type="text" id="lokasiUndangan" placeholder="Lokasi acara"></div>
+                    <div class="form-group full-width"><label><i class="fas fa-heart"></i> Kami yang berbahagia</label><input type="text" id="namaOrangTua" placeholder="Nama orang tua"></div>
+                </div>
+            </div>
+
+            <div class="form-group full-width checkbox-group" style="margin-top: 20px;"><input type="checkbox" id="penyembelihanCheck"><label for="penyembelihanCheck">Penyembelihan mau disaksikan / vcall / dokumentasi?</label></div>
+            <div class="form-group full-width" id="penyembelihanSelect" style="display: none;"><label><i class="fas fa-video"></i> Pilih</label><select id="penyembelihan"><option value="Disaksikan Langsung">Disaksikan Langsung</option><option value="Video Call">Video Call</option><option value="Dokumentasi">Dokumentasi</option></select></div>
+
+            <div class="form-group full-width"><label><i class="fas fa-info-circle"></i> Info Tambahan</label><textarea id="infoTambahan" rows="2" placeholder="• Mohon kirim share loc paling lambat H-3\n• Bila berkenan, mohon info akun Instagram-nya"></textarea></div>
         </div>
     </div>
-
-    <!-- MAPS -->
-    <div class="section-title"><i class="fas fa-map-marked-alt"></i> Lokasi Kami</div>
-    <div class="maps-wrapper animate__animated animate__fadeInUp">
-        <div class="maps-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.987318665984!2d106.763925!3d-6.485158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e95e2acd590d%3A0x4e7c3b5b8e51f8e1!2sSawangan%2C%20Depok%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1710000000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </div>
-
-    <!-- PAKET AQIQAH DENGAN FOTO -->
-    <div class="section-title"><i class="fas fa-tags"></i> Pilih Paket Aqiqah</div>
-    <div class="packages-grid" id="packagesContainer"></div>
 
     <div class="action-container animate__animated animate__fadeInUp">
         <h3 class="action-title">Sudah Menentukan Pilihan?</h3>
@@ -634,8 +788,7 @@
             </div>
             <div class="footer-col">
                 <h4><i class="fas fa-phone-alt"></i> Hubungi Kami</h4>
-                <p><i class="fab fa-whatsapp"></i> 0813 3256 5541</p>
-                <p><i class="fab fa-whatsapp"></i> 0813 5760 0951</p>
+                <p><i class="fab fa-whatsapp"></i> 0812-9281-7056</p>
             </div>
             <div class="footer-col">
                 <h4><i class="fas fa-map-marker-alt"></i> Kunjungi Kandang</h4>
@@ -644,7 +797,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2024 <span>Ummi Aqiqah</span>. Berkah, Halal, Nikmat.
+            &copy; 2026 <span>Ummi Aqiqah</span>. Berkah, Halal, Nikmat.
         </div>
     </footer>
 </div>
@@ -675,70 +828,144 @@
 
     function renderPackages() {
         const container = document.getElementById('packagesContainer');
-        const jk = document.getElementById('jenisKelamin').value;
         container.innerHTML = '';
         
-        paketList.forEach(paket => {
-            const imgSrc = jk === 'Laki-laki' ? paket.imgBoy : paket.imgGirl;
+        paketList.forEach((paket, index) => {
+            const imgSrc = selectedBaby === 'Babyboy' ? paket.imgBoy : paket.imgGirl;
+            const isActive = selectedPaket === paket.name ? 'active' : '';
             container.innerHTML += `
                 <div class="card">
                     <div class="card-img">
                         <img src="${imgSrc}" alt="${paket.name}">
                     </div>
                     <div class="card-body" style="padding-top: 20px;">
-                        <button class="btn-pilih" onclick="pilihPaket('${paket.name}')">Pilih ${paket.name}</button>
+                        <button class="btn-pilih ${isActive}" id="btn-paket-${index}" onclick="pilihPaket('${paket.name}', ${index})">Pilih ${paket.name}</button>
                     </div>
                 </div>
             `;
         });
     }
 
-    // Update paket images when jenis kelamin changes
-    document.getElementById('jenisKelamin').addEventListener('change', renderPackages);
-
     let selectedPaket = "";
+    let selectedBaby = "Babyboy";
 
-    function pilihPaket(nama) {
+    function selectBaby(jenis) {
+        selectedBaby = jenis;
+        document.getElementById('jenisBayiBoy').classList.remove('active');
+        document.getElementById('jenisBayiGirl').classList.remove('active');
+        if(jenis === 'Babyboy') {
+            document.getElementById('jenisBayiBoy').classList.add('active');
+        } else {
+            document.getElementById('jenisBayiGirl').classList.add('active');
+        }
+        renderPackages();
+    }
+
+    function pilihPaket(nama, index) {
         selectedPaket = nama;
+        // Hapus class active dari semua tombol
+        document.querySelectorAll('.btn-pilih').forEach(btn => btn.classList.remove('active'));
+        // Tambah class active ke tombol yang dipilih
+        document.getElementById(`btn-paket-${index}`).classList.add('active');
         alert(`Paket "${nama}" dipilih. Silakan lengkapi data dan kirim pesanan.`);
     }
+
+    // Event listeners untuk checkbox
+    document.getElementById('buatUndanganDigital').addEventListener('change', function() {
+        document.getElementById('dataUndanganSection').style.display = this.checked ? 'block' : 'none';
+    });
+
+    document.getElementById('penyembelihanCheck').addEventListener('change', function() {
+        document.getElementById('penyembelihanSelect').style.display = this.checked ? 'block' : 'none';
+    });
 
     document.getElementById('submitBtn').onclick = () => {
         const nama = document.getElementById('namaPemesan').value;
         const telp = document.getElementById('noTelp').value;
-        const anak = document.getElementById('namaAnak').value;
+        const email = document.getElementById('email').value;
+        const namaAnak = document.getElementById('namaAnak').value;
         const jk = document.getElementById('jenisKelamin').value;
-        const hewan = document.getElementById('hewan').value;
+        const tempatTglLahir = document.getElementById('tempatTglLahir').value;
+        const namaAyah = document.getElementById('namaAyah').value;
+        const namaIbu = document.getElementById('namaIbu').value;
+        const hariTglKirim = document.getElementById('hariTglKirim').value;
+        const jamTiba = document.getElementById('jamTiba').value;
+        const jamAcara = document.getElementById('jamAcara').value;
+        const alamat = document.getElementById('alamat').value;
+        const rt = document.getElementById('rt').value;
+        const rw = document.getElementById('rw').value;
+        const noRumah = document.getElementById('noRumah').value;
+        const kecamatan = document.getElementById('kecamatan').value;
+        const kota = document.getElementById('kota').value;
+        const patokan = document.getElementById('patokan').value;
+        const tipePaket = document.getElementById('tipePaket').value;
         const jenisHewan = document.getElementById('jenisHewan').value;
         const jumlahEkor = document.getElementById('jumlahEkor').value;
-        const penyembelihan = document.getElementById('penyembelihan').value;
-        const jumlahPaket = document.getElementById('jumlahPaket').value;
-        const sertifikat = document.getElementById('sertifikat').value;
-        const kartu = document.getElementById('kartuUcapan').value;
-        const kec = document.getElementById('kecamatan').value;
-        const kota = document.getElementById('kota').value;
-        const alamat = document.getElementById('alamat').value;
+        const menuMasakan = document.getElementById('menuMasakan').value;
+        const jumlahNasiBox = document.getElementById('jumlahNasiBox').value;
+        const menuTambahan = document.getElementById('menuTambahan').value;
+        const dp = document.getElementById('dp').value;
+        const catatan = document.getElementById('catatan').value;
+        const pakaiFotoKartu = document.getElementById('pakaiFotoKartu').checked ? 'Ya' : 'Tidak';
+        const pakaiFotoSertifikat = document.getElementById('pakaiFotoSertifikat').checked ? 'Ya' : 'Tidak';
+        const buatUndangan = document.getElementById('buatUndanganDigital').checked ? 'Ya' : 'Tidak';
+        const hariUndangan = document.getElementById('hariUndangan').value;
+        const pukulUndangan = document.getElementById('pukulUndangan').value;
+        const lokasiUndangan = document.getElementById('lokasiUndangan').value;
+        const namaOrangTua = document.getElementById('namaOrangTua').value;
+        const penyembelihanChoice = document.getElementById('penyembelihan').value;
+        const infoTambahan = document.getElementById('infoTambahan').value;
         
-        if(!nama || !telp || !anak || !alamat) {
-            alert("Harap isi Nama Pemesan, No Telepon, Nama Anak, dan Alamat Lengkap!");
-            return;
-        }
-        if(!selectedPaket) {
-            alert("Silakan pilih paket terlebih dahulu!");
+        if(!nama || !telp || !namaAnak || !alamat) {
+            alert("⚠️ Harap isi Nama Pemesan, No Telepon, Nama Anak, dan Alamat Lengkap!");
             return;
         }
 
-        let msg = `Halo Ummi Aqiqah,%0A%0A📋 *DATA PEMESANAN*%0A`;
-        msg += `Nama: ${nama}%0ANo HP: ${telp}%0A`;
-        msg += `Anak: ${anak} (${jk})%0A`;
-        msg += `Paket: ${selectedPaket} (${jumlahPaket} Box)%0A`;
-        msg += `Hewan: ${hewan} ${jenisHewan} (${jumlahEkor} ekor)%0A`;
-        msg += `Penyembelihan: ${penyembelihan}%0A`;
-        msg += `Sertifikat: ${sertifikat} | Kartu Ucapan: ${kartu}%0A`;
-        msg += `📍 Alamat: ${alamat}, Kec. ${kec}, ${kota}%0A%0A`;
-        msg += `Mohon info ketersediaan & total biaya. Terima kasih.`;
+        let msg = `*Bismillahirrahmanirrahim*%0A%0A`;
+        msg += `*📋 DATA PEMESANAN AQIQAH*%0A%0A`;
+        msg += `*👤 DATA PEMESAN*%0A`;
+        msg += `Nama: ${nama}%0A`;
+        msg += `No. Telp: ${telp}%0A`;
+        msg += `Email: ${email || '-'}%0A%0A`;
+        msg += `*👶 DATA ANAK*%0A`;
+        msg += `Nama: ${namaAnak}%0A`;
+        msg += `Jenis Kelamin: ${jk}%0A`;
+        msg += `Tempat, Tgl. Lahir: ${tempatTglLahir || '-'}%0A`;
+        msg += `Nama Ayah: ${namaAyah || '-'}%0A`;
+        msg += `Nama Ibu: ${namaIbu || '-'}%0A%0A`;
+        msg += `*📅 JADWAL PENGIRIMAN*%0A`;
+        msg += `Hari/Tgl Kirim: ${hariTglKirim || '-'}%0A`;
+        msg += `Jam Tiba: ${jamTiba || '-'}%0A`;
+        msg += `Jam Acara: ${jamAcara || '-'}%0A%0A`;
+        msg += `*📍 ALAMAT*%0A`;
+        msg += `${alamat}%0A`;
+        msg += `RT: ${rt}, RW: ${rw}, No: ${noRumah}%0A`;
+        msg += `Kec: ${kecamatan}, Kota: ${kota}%0A`;
+        msg += `Patokan: ${patokan || '-'}%0A%0A`;
+        msg += `*🔖 DETAIL PESANAN*%0A`;
+        msg += `Tipe/Paket: ${tipePaket}%0A`;
+        msg += `Hewan: ${jenisHewan} (${jumlahEkor} ekor)%0A`;
+        msg += `Menu Masakan: ${menuMasakan || '-'}%0A`;
+        msg += `Jumlah Nasi Box: ${jumlahNasiBox}%0A`;
+        msg += `Menu Tambahan: ${menuTambahan || '-'}%0A`;
+        msg += `DP: ${dp || '-'}%0A%0A`;
+        msg += `*✅ INFO TAMBAHAN*%0A`;
+        msg += `Foto Kartu Ucapan: ${pakaiFotoKartu}%0A`;
+        msg += `Foto Sertifikat: ${pakaiFotoSertifikat}%0A`;
+        msg += `Undangan Digital: ${buatUndangan}%0A`;
+        if(buatUndangan === 'Ya') {
+            msg += `  - Hari: ${hariUndangan || '-'}%0A`;
+            msg += `  - Pukul: ${pukulUndangan || '-'}%0A`;
+            msg += `  - Lokasi: ${lokasiUndangan || '-'}%0A`;
+            msg += `  - Nama: ${namaOrangTua || '-'}%0A`;
+        }
+        msg += `Penyembelihan: ${penyembelihanChoice}%0A%0A`;
+        msg += `*📝 CATATAN*%0A`;
+        msg += `${catatan || infoTambahan || '-'}%0A%0A`;
+        msg += `Mohon konfirmasi ketersediaan & total biaya. Terima kasih. 🙏`;
 
-        window.open(`https://wa.me/6281332565541?text=${msg}`, '_blank');
+        alert("✅ Terima kasih! 🙏 Data pesanan akan dikirim ke WhatsApp kami.");
+        window.open(`https://wa.me/6281292817056?text=${msg}`, '_blank');
     };
 
     renderPackages();
